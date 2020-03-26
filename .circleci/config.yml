@@ -1,7 +1,7 @@
-version: 2
+version: 2.1
 
 jobs:
-  init:
+  build_quality_release:
     docker:
       - image: circleci/node:latest
     steps:
@@ -11,70 +11,24 @@ jobs:
       - run:
           name: install
           command: npm i --no-save
+      - run:
+          name: lint
+          command: npm run lint
+      - run:
+          name: test
+          command: npm run test
+      - run:
+          name: build
+          command: npm run build
+      - run:
+          name: release
+          command: npm run semantic-release || true
       - save_cache:
           key: dependencies-{{ checksum "package.json" }}
           paths:
             - node_modules
 
-  lint:
-    docker:
-      - image: circleci/node:latest
-    steps:
-      - checkout
-      - restore_cache:
-          key: dependencies-{{ checksum "package.json" }}
-      - run:
-          name: lint
-          command: npm run lint
-
-  test:
-    docker:
-      - image: circleci/node:latest
-    steps:
-      - checkout
-      - restore_cache:
-          key: dependencies-{{ checksum "package.json" }}
-      - run:
-          name: lint
-          command: npm run test
-
-  build:
-    docker:
-      - image: circleci/node:latest
-    steps:
-      - checkout
-      - restore_cache:
-          key: dependencies-{{ checksum "package.json" }}
-      - run:
-          name: build
-          command: npm run build
-
-  release:
-    docker:
-      - image: circleci/node:latest
-    steps:
-      - checkout
-      - restore_cache:
-          key: dependencies-{{ checksum "package.json" }}
-      - run:
-          name: release
-          command: npm run semantic-release || true
-
 workflows:
-  version: 2
-  build_release:
+  build_quality_release:
     jobs:
-      - init
-      - lint:
-          requires:
-            - init
-      - test:
-          requires:
-            - init
-      - build:
-          requires:
-            - lint
-            - test
-      - release:
-          requires:
-            - build
+      - build_quality_release
