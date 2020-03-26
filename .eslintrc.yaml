@@ -1,0 +1,7 @@
+$schema: 'http://json.schemastore.org/eslintrc'
+
+extends:
+  - '@bmatei/eslint-config/ts.prettier.yaml'
+
+parserOptions:
+  project: ./tsconfig.eslint.json

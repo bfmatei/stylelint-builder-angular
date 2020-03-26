@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "stylelint Target",
+  "description": "stylelint target options for Build Facade.",
+  "type": "object",
+  "properties": {
+    "cache": {
+      "type": "boolean",
+      "description": "Store the results of processed files so that stylelint only operates on the changed ones."
+    },
+    "cacheLocation": {
+      "type": "string",
+      "description": "Path to a file or directory for the cache location."
+    },
+    "configFile": {
+      "type": "string",
+      "description": "Path to a JSON, YAML, or JS file that contains your configuration object."
+    },
+    "disableDefaultIgnores": {
+      "type": "boolean",
+      "description": "Disable the default ignores. stylelint will not automatically ignore the contents of node_modules."
+    },
+    "files": {
+      "type": "array",
+      "description": "Files to include in linting.",
+      "default": ["src/**/*.@(css|less|pcss|sass|scss)"],
+      "items": {
+        "type": "string"
+      }
+    },
+    "fix": {
+      "type": "boolean",
+      "description": "Fixes linting errors (may overwrite linted files)."
+    },
+    "force": {
+      "type": "boolean",
+      "description": "Succeeds even if there was linting errors."
+    },
+    "format": {
+      "type": "array",
+      "description": "Specify the formatter to format your results.",
+      "default": ["string"],
+      "items": {
+        "enum": ["compact", "json", "string", "unix", "verbose"]
+      }
+    },
+    "ignorePath": {
+      "type": "boolean",
+      "description": "A path to a file (.stylelintignore) containing patterns describing files to ignore."
+    },
+    "maxWarnings": {
+      "type": "number",
+      "description": "Set a limit to the number of warnings accepted."
+    },
+    "reportInvalidScopeDisables": {
+      "type": "boolean",
+      "description": "Produce a report to clean up your codebase, keeping only the stylelint-disable comments that serve a purpose."
+    },
+    "reportNeedlessDisables": {
+      "type": "boolean",
+      "description": "Produce a report to clean up your codebase, keeping only the stylelint-disable comments that serve a purpose."
+    },
+    "silent": {
+      "type": "boolean",
+      "description": "Show output text.",
+      "default": false
+    }
+  },
+  "additionalProperties": false,
+  "required": []
+}

@@ -1,0 +1,11 @@
+.circleci
+.idea
+.vscode
+node_modules
+.editorconfig
+.eslintrc.yaml
+.huskyrc.yaml
+.lintstagedrc.yaml
+.prettierrc.yaml
+CHANGELOG.md
+*.iml

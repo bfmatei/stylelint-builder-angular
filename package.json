@@ -1,0 +1,56 @@
+{
+  "name": "@bmatei/stylelint-builder-angular",
+  "version": "0.0.0-development",
+  "description": "stylelint builder for Angular.",
+  "author": "Bogdan Matei <bogdan@matei.dev>",
+  "license": "MIT",
+  "homepage": "https://github.com/bfmatei/stylelint-builder-angular#readme",
+  "repository": "github:bfmatei/stylelint-builder-angular",
+  "main": "src/index.ts",
+  "typings": "src/index.d.ts",
+  "builders": "builders.json",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc -p tsconfig.json",
+    "postbuild": "copyfiles builders.json package.json README.md dist",
+    "pretest": "tsc -p tsconfig.spec.json",
+    "test": "jest",
+    "lint": "eslint \"{src, test}/**/*.ts\"",
+    "semantic-release": "semantic-release",
+    "postpublish": "copyfiles dist/package.json .",
+    "prettify": "prettier --write \"./**/*.{js,ts,json,yaml,yml}\""
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "gitDir": "../",
+    "*.{js,ts,json,yaml,yml}": ["prettier --write"]
+  },
+  "devDependencies": {
+    "@angular-devkit/architect": "0.901.0",
+    "@angular-devkit/build-angular": "0.901.0",
+    "@angular-devkit/core": "9.1.0",
+    "@bmatei/eslint-config": "1.0.21",
+    "@semantic-release/changelog": "5.0.0",
+    "@semantic-release/git": "9.0.0",
+    "@types/jest": "25.1.4",
+    "@types/stylelint": "9.10.1",
+    "@types/node": "13.9.3",
+    "@typescript-eslint/eslint-plugin": "2.25.0",
+    "@typescript-eslint/parser": "2.25.0",
+    "copyfiles": "2.2.0",
+    "eslint": "6.8.0",
+    "husky": "4.2.3",
+    "jest": "25.2.2",
+    "lint-staged": "10.0.9",
+    "prettier": "2.0.2",
+    "rimraf": "3.0.2",
+    "semantic-release": "17.0.4",
+    "stylelint": "13.2.1",
+    "ts-jest": "25.2.1",
+    "typescript": "3.8.3"
+  }
+}

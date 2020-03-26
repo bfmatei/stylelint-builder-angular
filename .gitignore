@@ -1,0 +1,35 @@
+# System Files
+.DS_Store
+Thumbs.db
+
+# IDE - IntelliJ
+/.idea/*
+!/.idea/codeStyles
+!/.idea/inspectionProfiles
+!/.idea/runConfigurations
+!/.idea/compiler.xml
+!/.idea/corebapp.iml
+!/.idea/jsLibraryMappings.xml
+!/.idea/misc.xml
+!/.idea/modules.xml
+!/.idea/vcs.xml
+
+# IDE - VSCode
+/.vscode/*
+!/.vscode/settings.json
+!/.vscode/extensions.json
+/.history/*
+
+# Dependencies
+/node_modules
+
+# Output
+/coverage
+/dist
+/tmp
+/out
+/out-tsc
+
+# Profiling
+chrome-profiler-events*.json
+speed-measure-plugin*.json

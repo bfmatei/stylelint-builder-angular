@@ -1,0 +1,1 @@
+# stylelint builder for Angular

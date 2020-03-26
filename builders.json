@@ -1,0 +1,10 @@
+{
+  "$schema": "/node_modules/@angular-devkit/architect/src/builders-schema.json",
+  "builders": {
+    "lint": {
+      "implementation": "./src/index",
+      "schema": "./src/schema.json",
+      "description": "Run stylelint"
+    }
+  }
+}

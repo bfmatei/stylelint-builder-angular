@@ -1,0 +1,4 @@
+$schema: 'http://json.schemastore.org/lintstagedrc.schema'
+
+'*.{ts,json,yaml}':
+  - prettier --write
