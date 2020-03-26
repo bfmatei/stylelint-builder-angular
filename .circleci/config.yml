@@ -10,7 +10,7 @@ jobs:
           key: dependencies-{{ checksum "package.json" }}
       - run:
           name: install
-          command: npm i
+          command: npm i --no-save
       - save_cache:
           key: dependencies-{{ checksum "package.json" }}
           paths:

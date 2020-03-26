@@ -9,7 +9,7 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "lib": ["dom", "esnext"],
+    "lib": ["esnext"],
     "module": "commonjs",
     "moduleResolution": "node",
     "noImplicitAny": true,
