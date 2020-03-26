@@ -4,7 +4,7 @@ module.exports = {
   coverageReporters: ['lcovonly', 'html'],
   globals: {
     'ts-jest': {
-      tsConfigFile: './test/tsconfig.json'
+      tsConfig: './tsconfig.spec.json'
     }
   },
   moduleFileExtensions: ['js', 'json', 'ts'],
