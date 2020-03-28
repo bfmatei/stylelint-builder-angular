@@ -29,7 +29,7 @@ export async function builder(options: BuilderOptions, context: BuilderContext):
   const result = await lint(projectStylelint, options);
 
   if (printInfo) {
-    context.logger.info(projectStylelint.formatters.string(result.results));
+    context.logger.info(result.output);
 
     if (result.hasWarnings) {
       context.logger.warn('stylelint found warnings in the listed files.');
@@ -39,12 +39,12 @@ export async function builder(options: BuilderOptions, context: BuilderContext):
       context.logger.error('stylelint found errors in the listed files.');
     }
 
-    if (!result.errored) {
+    if (result.isSuccess) {
       context.logger.info('All files passed linting.');
     }
   }
 
   return {
-    success: (options.force as boolean) || result.errored
+    success: (options.force as boolean) || result.isSuccess
   };
 }

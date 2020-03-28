@@ -27,7 +27,9 @@
   },
   "lint-staged": {
     "gitDir": "../",
-    "*.{js,ts,json,yaml,yml}": ["prettier --write"]
+    "*.{js,ts,json,yaml,yml}": [
+      "prettier --write"
+    ]
   },
   "devDependencies": {
     "@angular-devkit/architect": "0.901.0",
