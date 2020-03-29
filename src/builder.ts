@@ -3,6 +3,7 @@ import { BuilderContext, BuilderOutput } from '@angular-devkit/architect';
 import { BuilderOptions } from './builder.model';
 import { lint } from './lint';
 import { loadProjectStylelint } from './load-project-stylelint';
+import { shouldPrintInfo } from './should-print-info';
 
 export async function builder(options: BuilderOptions, context: BuilderContext): Promise<BuilderOutput> {
   const systemRoot = context.workspaceRoot;
@@ -11,8 +12,7 @@ export async function builder(options: BuilderOptions, context: BuilderContext):
 
   const projectName = (context.target && context.target.project) || '<???>';
 
-  // Print formatter output only for non human-readable formats.
-  const printInfo = !options.silent && options.format !== 'json';
+  const printInfo = shouldPrintInfo(options);
 
   let status = `Running stylelint for project ${JSON.stringify(projectName)}...`;
 
@@ -26,25 +26,25 @@ export async function builder(options: BuilderOptions, context: BuilderContext):
 
   options.configBasedir = systemRoot;
 
-  const result = await lint(projectStylelint, options);
+  const report = await lint(projectStylelint, options);
 
   if (printInfo) {
-    context.logger.info(result.output);
+    context.logger.info(report.output);
 
-    if (result.hasWarnings) {
+    if (report.hasWarnings) {
       context.logger.warn('stylelint found warnings in the listed files.');
     }
 
-    if (result.hasErrors) {
+    if (report.hasErrors) {
       context.logger.error('stylelint found errors in the listed files.');
     }
 
-    if (result.isSuccess) {
+    if (report.isSuccess) {
       context.logger.info('All files passed linting.');
     }
   }
 
   return {
-    success: (options.force as boolean) || result.isSuccess
+    success: (options.force as boolean) || report.isSuccess
   };
 }

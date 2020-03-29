@@ -10,3 +10,13 @@ export interface LintReport {
   hasErrors: boolean;
   isSuccess: boolean;
 }
+
+export enum Severity {
+  WARN = 'warning',
+  ERROR = 'error'
+}
+
+export interface WarningsErrorsFlags {
+  hasWarnings: boolean;
+  hasErrors: boolean;
+}
