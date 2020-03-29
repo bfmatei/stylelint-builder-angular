@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/bfmatei/stylelint-builder-angular/compare/v1.0.1...v1.0.2) (2020-03-29)
+
+
+### Bug Fixes
+
+* Improve code ([d7ecc06](https://github.com/bfmatei/stylelint-builder-angular/commit/d7ecc06c20d506009843a81cea92814465fa28b7))
+
 ## [1.0.1](https://github.com/bfmatei/stylelint-builder-angular/compare/v1.0.0...v1.0.1) (2020-03-28)
 
 
