@@ -2,6 +2,14 @@
   "name": "@bmatei/stylelint-builder-angular",
   "version": "0.0.0-development",
   "description": "stylelint builder for Angular.",
+  "keywords": [
+    "angular",
+    "angular-cli",
+    "css",
+    "lint",
+    "scss",
+    "stylelint"
+  ],
   "author": "Bogdan Matei <bogdan@matei.dev>",
   "license": "MIT",
   "homepage": "https://github.com/bfmatei/stylelint-builder-angular#readme",
