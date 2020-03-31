@@ -16,7 +16,7 @@ export enum Severity {
   ERROR = 'error'
 }
 
-export interface WarningsErrorsFlags {
+export interface ReportFlags {
   hasWarnings: boolean;
   hasErrors: boolean;
 }

@@ -1,8 +1,10 @@
 # stylelint builder for Angular  
 Run [stylelint](https://stylelint.io/) from Angular CLI.
 
+Please note that this builder runs stylelint using the CLI engine. It's still pretty experimental.
+
 ## Install
-1. Install stylelint: `npm install eslint --save-dev`
+1. Install stylelint: `npm install stylelint --save-dev`
 2. Install the builder: `npm install @bmatei/stylelint-builder-angular --save-dev`
 3. Add the builder to `angular.json`:
 ```
@@ -28,7 +30,7 @@ Some options correspond to the stylelint config parameters. By default, these do
 6. `force`
     - Ignore any errors and warnings and return a success status.
     - Default: `false`
-7. `format`
+7. `formatter`
     - [Reference](https://stylelint.io/user-guide/usage/options#formatter)
 8. `ignorePath`
     - [Reference](https://stylelint.io/user-guide/usage/options#ignorepath)

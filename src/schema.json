@@ -36,13 +36,11 @@
       "type": "boolean",
       "description": "Succeeds even if there was linting errors."
     },
-    "format": {
-      "type": "array",
+    "formatter": {
+      "type": "string",
       "description": "Specify the formatter to format your results.",
-      "default": ["string"],
-      "items": {
-        "enum": ["compact", "json", "string", "unix", "verbose"]
-      }
+      "default": "string",
+      "enum": ["compact", "json", "string", "unix", "verbose"]
     },
     "ignorePath": {
       "type": "boolean",

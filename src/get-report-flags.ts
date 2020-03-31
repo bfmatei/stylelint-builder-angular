@@ -1,13 +1,13 @@
 import * as stylelint from 'stylelint';
 
-import { Severity, WarningsErrorsFlags } from './builder.model';
+import { ReportFlags, Severity } from './builder.model';
 
-const initialWarningsErrorsFlags: WarningsErrorsFlags = {
+const initialWarningsErrorsFlags: ReportFlags = {
   hasWarnings: false,
   hasErrors: false
 };
 
-export function getWarningErrorsFlags(report: stylelint.LinterResult): WarningsErrorsFlags {
+export function getReportFlags(report: stylelint.LinterResult): ReportFlags {
   return report.results
     .map((result) => result.warnings)
     .flat()
