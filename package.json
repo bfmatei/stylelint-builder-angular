@@ -28,17 +28,6 @@
     "postpublish": "copyfiles dist/package.json .",
     "prettify": "prettier --write \"./**/*.{js,ts,json,yaml,yml}\""
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "gitDir": "../",
-    "*.{js,ts,json,yaml,yml}": [
-      "prettier --write"
-    ]
-  },
   "devDependencies": {
     "@angular-devkit/architect": "0.901.0",
     "@angular-devkit/build-angular": "0.901.0",
